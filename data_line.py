@@ -41,17 +41,11 @@ def get_features(line):
 
     return {
         # Italian features
-        #"endsWith_e": endsWith("i", line),
-        #"substring_el": "el" in line,
-        #"substring_ll": "ll" in line,
         "containsWord_di": "di" in words,
         "containsWord_e": "e" in words,
         "containsWord_il": "il" in words,
 
         # Dutch features
-        #"endsWith_en": endsWith("en", line),
-        #"substring_aa": "aa" in line,
-        #"substring_ee": "ee" in line,
         "containsWord_het": "het" in words,
         "containsWord_de": "de" in words,
         "containsWord_dat": "dat" in words,
