@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b26a24fc-405a-4a6e-ae8c-5ceb3326b81e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/test_data.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/train_data.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_line.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/decisionTree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wiki.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wiki.py" beforeDir="false" afterPath="$PROJECT_DIR$/wiki.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +151,21 @@
       <option name="presentableId" value="Default" />
       <updated>1619150833081</updated>
     </task>
+    <task id="LOCAL-00001" summary="Language detector implemented">
+      <created>1619216224000</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619216224000</updated>
+    </task>
+    <task id="LOCAL-00002" summary="cleanup">
+      <created>1619216282631</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619216282631</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,5 +178,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Language detector implemented" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
 </project>

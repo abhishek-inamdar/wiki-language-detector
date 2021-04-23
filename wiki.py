@@ -245,9 +245,9 @@ def printResults(results):
         total += 1
         if res["decision"] == res["goal"]:
             correct += 1
-            print("| value:", res["value"][:25], "| expected:", res["goal"], "| result:", res["decision"])
+            print("value:", res["value"][:25], "| expected:", res["goal"], "| result:", res["decision"])
         else:
-            print("| value:", res["value"][:25], "| expected:", res["goal"], "| result:", res["decision"],
+            print("value:", res["value"][:25], "| expected:", res["goal"], "| result:", res["decision"],
                   "| Incorrect")
     print()
     accuracyPercentage = round((correct / total) * 100, 2)
