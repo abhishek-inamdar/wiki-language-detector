@@ -10,7 +10,13 @@ import pickle  # serialization-deserialization utility
 import sys
 
 from data_line import getLines
+from data_line import getPredictionLines
 from decisionTree import dTree
+
+TRAINING_FILE = "./data/train_data.txt"
+VALIDATION_FILE = "data/validation_data.txt"
+D_TREE_OBJECT_FILE = "./objects/dTree.obj"
+A_BOOST_OBJECT_FILE = "./objects/aBoost.obj"
 
 
 class DecisionTreeModel:
@@ -64,6 +70,26 @@ class DecisionTreeModel:
         for ex in examples[0]:
             decision = self.tree.decide(ex)
             results.append({"value": ex.value, "goal": ex.goal, "decision": decision})
+
+        return results
+
+    def predict(self, predict_file):
+        """
+        predict method
+        :param predict_file: prediction data file
+        :return: results
+        """
+        if not self.tree:
+            raise FileNotFoundError("Training is required")
+        if not predict_file:
+            raise ValueError("Prediction file is required")
+
+        examples = getPredictionLines(predict_file)
+        results = []
+
+        for ex in examples[0]:
+            decision = self.tree.decide(ex)
+            results.append({"value": ex.value, "decision": decision})
 
         return results
 
@@ -193,6 +219,26 @@ class AdaBoostModel:
 
         return results
 
+    def predict(self, predict_file):
+        """
+        predict method
+        :param predict_file: prediction data file
+        :return: results
+        """
+        if not self.stumps:
+            raise FileNotFoundError("Training is required")
+
+        if not predict_file:
+            raise ValueError("Prediction file is required")
+        examples = getPredictionLines(predict_file)
+        results = []
+
+        for ex in examples[0]:
+            decision = self.vote(ex)
+            results.append({"value": ex.value, "decision": decision})
+
+        return results
+
     def vote(self, dataLine):
         """
         classifies dataLine based on vote
@@ -233,25 +279,33 @@ def showUsageMessage(showBothMessages):
     exit(1)
 
 
-def printResults(results):
+def printResults(results, modelName):
     """
     Print results based on model's results and given examples
     :param results: list of results
+    :param modelName: Name of the Model
     """
     correct = 0
     total = 0
-    print()
     for res in results:
         total += 1
         if res["decision"] == res["goal"]:
             correct += 1
-            print("value:", res["value"][:25], "| expected:", res["goal"], "| result:", res["decision"])
-        else:
-            print("value:", res["value"][:25], "| expected:", res["goal"], "| result:", res["decision"],
-                  "| Incorrect")
-    print()
     accuracyPercentage = round((correct / total) * 100, 2)
-    print("Accuracy: " + str(accuracyPercentage) + "%")
+    print(modelName + " Model Accuracy: " + str(accuracyPercentage) + "%")
+
+
+def printPredictionResults(predictions):
+    """
+    Print results based on model's prediction and given examples
+    :param predictions: list of predictions
+    """
+    total = 0
+    print()
+    for res in predictions:
+        total += 1
+        print("Segment:", res["value"][:30], "| Prediction:", res["decision"])
+    print()
 
 
 def train(examples):
@@ -264,35 +318,58 @@ def train(examples):
         <|> is delimiter between identifier and sentence
     :return: None
     """
-    dt_model = DecisionTreeModel(examples, "./objects/dTree.obj")
+    dt_model = DecisionTreeModel(examples, D_TREE_OBJECT_FILE)
     # depth of the decision tree
     dt_model.train(5)
 
-    ab_model = AdaBoostModel(examples, "./objects/aBoost.obj")
+    ab_model = AdaBoostModel(examples, A_BOOST_OBJECT_FILE)
     # number of stumps
     ab_model.train(10)
 
 
-def predict(model, test_file):
+def validate(validate_file):
     """
-    predicts given examples based on the given trained model
-    each example should be in the following format:
+    validates trained models
+    :param validate_file: validation set file
+        each line will be in the following format:
         <IT or DU><|><20 word sentence>
         "IT" denotes Italian, "DU" denotes Dutch,
         <|> is delimiter between identifier and sentence
-    :param model: which model to use?
-    :param test_file: test file containing test examples
     :return: None
     """
-    if model == "DT":
-        objFile = "./objects/dTree.obj"
-    else:
-        objFile = "./objects/aBoost.obj"
+    objFile = D_TREE_OBJECT_FILE
     objFile = open(objFile, "rb")
     model = pickle.load(objFile)
     objFile.close()
-    results = model.test(test_file)
-    printResults(results)
+    results = model.test(validate_file)
+    printResults(results, "Decision Tree")
+
+    objFile = A_BOOST_OBJECT_FILE
+    objFile = open(objFile, "rb")
+    model = pickle.load(objFile)
+    objFile.close()
+    results = model.test(validate_file)
+    printResults(results, "AdaBoost")
+
+
+def predict(model, predict_file):
+    """
+    predicts given examples based on the given trained model
+    each example should be in the following format:
+    <20 word sentence>
+    :param model: which model to use?
+    :param predict_file: prediction file containing test examples
+    :return: None
+    """
+    if model == "DT":
+        objFile = D_TREE_OBJECT_FILE
+    else:
+        objFile = A_BOOST_OBJECT_FILE
+    objFile = open(objFile, "rb")
+    model = pickle.load(objFile)
+    objFile.close()
+    predictions = model.predict(predict_file)
+    printPredictionResults(predictions)
 
 
 def main():
@@ -309,6 +386,8 @@ def main():
         examples = sys.argv[2]
         train(examples)
         print("Training Done!!")
+        validate(VALIDATION_FILE)
+        print("Validation Done!!")
 
     elif action == "predict":
         if len(sys.argv) < 4:
@@ -316,8 +395,10 @@ def main():
         model = sys.argv[2]
         if model not in {"DT", "AB", "BS"}:
             showUsageMessage(False)
-        test_file = sys.argv[3]
-        predict(model, test_file)
+        predict_file = sys.argv[3]
+        print("Prediction Starts...")
+        predict(model, predict_file)
+        print("Prediction End!")
 
 
 if __name__ == '__main__':

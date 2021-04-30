@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b26a24fc-405a-4a6e-ae8c-5ceb3326b81e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data/predict_file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/validation_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_line.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_line.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/dTree.obj" beforeDir="false" afterPath="$PROJECT_DIR$/objects/dTree.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wiki.py" beforeDir="false" afterPath="$PROJECT_DIR$/wiki.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +63,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wiki.py" />
-      <option name="PARAMETERS" value="predict AB ./data/test_data.txt" />
+      <option name="PARAMETERS" value="predict AB ./data/predict_file.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -80,7 +84,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wiki.py" />
-      <option name="PARAMETERS" value="predict BS ./data/test_data.txt" />
+      <option name="PARAMETERS" value="predict BS ./data/predict_file.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -101,7 +105,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wiki.py" />
-      <option name="PARAMETERS" value="predict DT ./data/test_data.txt" />
+      <option name="PARAMETERS" value="predict DT ./data/predict_file.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -131,9 +135,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.wiki_predict_DT" />
       <item itemvalue="Python.wiki_predict_AB" />
       <item itemvalue="Python.wiki_predict_BS" />
+      <item itemvalue="Python.wiki_predict_DT" />
       <item itemvalue="Python.wiki_train" />
     </list>
     <recent_temporary>
@@ -165,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619216282631</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="output look change">
+      <created>1619217711642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619217711642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,10 +189,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Language detector implemented" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="output look change" />
+    <option name="LAST_COMMIT_MESSAGE" value="output look change" />
   </component>
 </project>

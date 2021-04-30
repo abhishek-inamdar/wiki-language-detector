@@ -5,13 +5,17 @@ class DataLine:
 
     __slots__ = "goal", "value", "features", "weight"
 
-    def __init__(self, line):
+    def __init__(self, line, isPredict):
         """
         constructor method
         :param line: The input line
         """
-        self.goal = line[:2]
-        self.value = line[3:]
+        if isPredict:
+            self.goal = None
+            self.value = line
+        else:
+            self.goal = line[:2]
+            self.value = line[3:]
         self.features = get_features(line)
         self.weight = None
 
@@ -26,7 +30,21 @@ def getLines(file):
     for line in open(file):
         if not len(line.strip()) > 3:
             continue
-        lines[0].append(DataLine(line))
+        lines[0].append(DataLine(line, False))
+    return lines
+
+
+def getPredictionLines(file):
+    """
+    returns objects of DataLines from a prediction file
+    :param file: file of the data
+    :return: List of DataLine objects
+    """
+    lines = [[]]
+    for line in open(file):
+        if not len(line.strip()) > 0:
+            continue
+        lines[0].append(DataLine(line, True))
     return lines
 
 
