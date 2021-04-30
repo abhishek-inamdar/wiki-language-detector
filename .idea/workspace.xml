@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b26a24fc-405a-4a6e-ae8c-5ceb3326b81e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/predict_file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/validation_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_line.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_line.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/dTree.obj" beforeDir="false" afterPath="$PROJECT_DIR$/objects/dTree.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wiki.py" beforeDir="false" afterPath="$PROJECT_DIR$/wiki.py" afterDir="false" />
     </list>
@@ -49,7 +46,7 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.wiki_predict_AB">
+  <component name="RunManager" selected="Python.wiki_train">
     <configuration name="wiki_predict_AB" type="PythonConfigurationType" factoryName="Python">
       <module name="wiki-language-detector" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -176,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619217711642</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactoring">
+      <created>1619802387844</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619802387844</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +199,7 @@
     <MESSAGE value="Language detector implemented" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="output look change" />
-    <option name="LAST_COMMIT_MESSAGE" value="output look change" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
 </project>

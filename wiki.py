@@ -272,10 +272,10 @@ def showUsageMessage(showBothMessages):
     """
     if showBothMessages:
         print("Usage: python3 wiki.py train <training-data-file>")
-        print("Usage: python3 wiki.py predict <DT|AB|BS> <test-data-file>")
+        print("Usage: python3 wiki.py predict <DT|AB|BS> <predict-data-file>")
     else:
         print("Incorrect Arguments.")
-        print("Usage: python3 wiki.py predict <DT|AB|BS> <test-data-file>")
+        print("Usage: python3 wiki.py predict <DT|AB|BS> <predict-data-file>")
     exit(1)
 
 
